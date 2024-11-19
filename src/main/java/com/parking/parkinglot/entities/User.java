@@ -7,24 +7,18 @@ import java.util.Collection;
 @Entity
 @Table(name = "user")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Long id;
     private String username;
     private String email;
     private String password;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Id
-    @GeneratedValue
-    public Long getId() {
-        return id;
-    }
-
     public void setUsername(String username) {
         this.username = username;
     }
+
     @Basic
     public String getUsername() {
         return username;
@@ -48,6 +42,14 @@ public class User {
 
 
     private Collection<Car> cars;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @OneToMany(mappedBy = "owner")
     public Collection<Car> getCars() {

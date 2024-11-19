@@ -5,19 +5,12 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "car")
 public class Car {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Long id;
     private String licensePlate;
     private String parkingSpot;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Id
-    @GeneratedValue
-    public Long getId() {
-        return id;
-    }
 
     public String getLicensePlate() {
         return licensePlate;
@@ -36,9 +29,17 @@ public class Car {
     }
 
 
-
     @ManyToOne
     private User owner;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public User getOwner() {
         return owner;
     }
