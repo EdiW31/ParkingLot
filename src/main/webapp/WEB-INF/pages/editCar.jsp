@@ -34,7 +34,7 @@
 
             <!-- Save Button -->
             <!-- Save Button -->
-            <input type="hidden" name="car_id" value="${car.id}" />
+            <input type="hidden" name="car_id" value="${car.id}"/>
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>

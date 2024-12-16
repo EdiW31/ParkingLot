@@ -7,9 +7,12 @@
         <h1 class="d-flex justify-content-center">List of all the Cars</h1>
         <form method="POST" action="${pageContext.request.contextPath}/Cars">
             <div class="d-flex justify-content-center">
-                <a class="btn btn-primary btn-lg m-2" type="submit" href="${pageContext.request.contextPath}/AddCar">Add
-                    Car</a>
-                <button class="btn btn-danger btn-lg m-2" type="submit">Delete</button>
+                <c:if test="${pageContext.request.isUserInRole('WRITE_CARS')}">
+                    <a class="btn btn-primary btn-lg m-2" type="submit"
+                       href="${pageContext.request.contextPath}/AddCar">Add
+                        Car</a>
+                    <button class="btn btn-danger btn-lg m-2" type="submit">Delete</button>
+                </c:if>
             </div>
             <div class="container text-center">
                 <div class="row">
@@ -21,9 +24,11 @@
                 </div>
                 <c:forEach var="car" items="${cars}">
                     <div class="row">
-                        <div class="col mt-2">
-                            <input type="checkbox" name="carId" value="${car.id}">
-                        </div>
+                        <c:if test="${pageContext.request.isUserInRole('WRITE_CARS')}">
+                            <div class="col mt-2">
+                                <input type="checkbox" name="carId" value="${car.id}">
+                            </div>
+                        </c:if>
                         <div class="col mt-2">
                                 ${car.licensePlate}
                         </div>
