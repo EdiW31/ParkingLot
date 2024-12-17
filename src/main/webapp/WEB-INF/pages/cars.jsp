@@ -20,6 +20,7 @@
                     <div class="col mt-2"><strong>License Plate</strong></div>
                     <div class="col mt-2"><strong>Parking Spot</strong></div>
                     <div class="col mt-2"><strong>Owner</strong></div>
+                    <div class="col mt-2"><strong>Photo</strong></div>
                     <div class="col mt-2"><strong>Actions</strong></div>
                 </div>
                 <c:forEach var="car" items="${cars}">
@@ -38,11 +39,28 @@
                         <div class="col mt-2">
                                 ${car.ownerName}
                         </div>
-                        <div class="col mt-1">
-                            <a class="btn btn-warning" href="${pageContext.request.contextPath}/EditCar?id=${car.id}">Edit
-                                Car
-                            </a>
+                        <div class="col mt-2">
+                            <img src="${pageContext.request.contextPath}/CarPhotos?id=${car.id}" alt="Car Photo"
+                                 width="48">
                         </div>
+                        <c:if test="${pageContext.request.isUserInRole('WRITE_CARS')}">
+                            <div class="col mt-2">
+                                <a class="btn btn-secondary"
+                                   href="${pageContext.request.contextPath}/AddCarPhoto?id=${car.id}" role="button"
+                                >
+                                    Add Photo
+                                </a>
+                            </div>
+                            <div class="col mt-2">
+                                <a class="btn btn-primary"
+                                   href="${pageContext.request.contextPath}/EditCar?id=${car.id}" role="button"
+                                >
+                                    Edit Car
+                                </a>
+                            </div>
+                        </c:if>
+
+
                     </div>
                 </c:forEach>
             </div>
