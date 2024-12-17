@@ -3,7 +3,7 @@ package com.parking.parkinglot.entities;
 import jakarta.persistence.*;
 
 @Entity
-public class UserGroups {
+public class UserGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
