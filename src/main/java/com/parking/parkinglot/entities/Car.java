@@ -22,6 +22,7 @@ public class Car {
         this.photo = photo;
     }
 
+    @Column(unique=true, nullable=false, length = 100)
     public String getLicensePlate() {
         return licensePlate;
     }
@@ -30,6 +31,7 @@ public class Car {
         this.licensePlate = licensePlate;
     }
 
+    @Column(unique=true, length = 100)
     public String getParkingSpot() {
         return parkingSpot;
     }

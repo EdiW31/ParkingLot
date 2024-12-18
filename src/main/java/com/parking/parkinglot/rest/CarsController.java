@@ -3,9 +3,9 @@ package com.parking.parkinglot.rest;
 import com.parking.parkinglot.common.CarDto;
 import com.parking.parkinglot.ejb.CarsBean;
 import jakarta.inject.Inject;
-import jakarta.websocket.server.PathParam;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
