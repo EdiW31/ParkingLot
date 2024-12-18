@@ -1,4 +1,4 @@
-package com.parking.parkinglot.ejp;
+package com.parking.parkinglot.ejb;
 
 import jakarta.ejb.Stateless;
 

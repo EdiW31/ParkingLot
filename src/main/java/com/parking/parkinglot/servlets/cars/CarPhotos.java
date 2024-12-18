@@ -1,13 +1,12 @@
-package com.parking.parkinglot;
+package com.parking.parkinglot.servlets.cars;
 
-import com.parking.parkinglot.common.CarDto;
 import com.parking.parkinglot.common.CarPhotoDto;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
-import com.parking.parkinglot.ejp.CarsBean;
+import com.parking.parkinglot.ejb.CarsBean;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;

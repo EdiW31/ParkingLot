@@ -1,4 +1,4 @@
-package com.parking.parkinglot.ejp;
+package com.parking.parkinglot.ejb;
 
 import com.parking.parkinglot.common.CarDto;
 import com.parking.parkinglot.entities.Car;
@@ -12,6 +12,7 @@ import jakarta.persistence.TypedQuery;
 
 import java.util.List;
 import java.util.logging.Logger;
+
 import com.parking.parkinglot.common.CarPhotoDto;
 
 @Stateless

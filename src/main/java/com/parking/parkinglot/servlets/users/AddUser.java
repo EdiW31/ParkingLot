@@ -1,7 +1,6 @@
-package com.parking.parkinglot;
+package com.parking.parkinglot.servlets.users;
 
-import com.parking.parkinglot.common.UserDto;
-import com.parking.parkinglot.ejp.UsersBean;
+import com.parking.parkinglot.ejb.UsersBean;
 import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.HttpConstraint;
@@ -13,7 +12,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.List;
 
 @ServletSecurity(value = @HttpConstraint(rolesAllowed = {"WRITE_USERS"}))
 @WebServlet(name = "AddUser", value = "/AddUser")
@@ -25,10 +23,8 @@ public class AddUser extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
-        request.setAttribute("userGroups", new String[]{"READ_CARS", "WRITE_CARS",
-                "READ_USERS", "WRITE_USERS"});
-        request.getRequestDispatcher("/WEB-INF/pages/addUser.jsp").forward(request,
-                response);
+        request.setAttribute("userGroups", new String[]{"READ_CARS", "WRITE_CARS", "READ_USERS", "WRITE_USERS"});
+        request.getRequestDispatcher("/WEB-INF/pages/users/addUser.jsp").forward(request, response);
     }
 
     @Override
@@ -36,13 +32,11 @@ public class AddUser extends HttpServlet {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String[] userGroups =
-                request.getParameterValues("user_groups");
+        String[] userGroups = request.getParameterValues("user_groups");
         if (userGroups == null) {
             userGroups = new String[0];
         }
-        usersBean.createUser(username, email, password,
-                Arrays.asList(userGroups));
+        usersBean.createUser(username, email, password, Arrays.asList(userGroups));
         response.sendRedirect(request.getContextPath() + "/Users");
     }
 }

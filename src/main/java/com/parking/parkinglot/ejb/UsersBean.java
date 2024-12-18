@@ -1,4 +1,4 @@
-package com.parking.parkinglot.ejp;
+package com.parking.parkinglot.ejb;
 
 import com.parking.parkinglot.common.UserDto;
 import com.parking.parkinglot.entities.User;

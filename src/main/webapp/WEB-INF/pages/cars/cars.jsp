@@ -21,7 +21,8 @@
                     <div class="col mt-2"><strong>Parking Spot</strong></div>
                     <div class="col mt-2"><strong>Owner</strong></div>
                     <div class="col mt-2"><strong>Photo</strong></div>
-                    <div class="col mt-2"><strong>Actions</strong></div>
+                    <div class="col mt-2"><strong>Add Photo</strong></div>
+                    <div class="col mt-2"><strong>Edit Car</strong></div>
                 </div>
                 <c:forEach var="car" items="${cars}">
                     <div class="row">
