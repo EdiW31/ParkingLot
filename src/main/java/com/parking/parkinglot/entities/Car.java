@@ -1,6 +1,7 @@
 package com.parking.parkinglot.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "car")
@@ -9,8 +10,15 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
+
+    @Size(min = 3, max = 100)
+    @Column(unique=true, nullable=false, length = 100)
     private String licensePlate;
+
+    @Size(min = 3, max = 100)
+    @Column(unique=true, nullable=false, length = 100)
     private String parkingSpot;
+
     private CarPhoto photo;
 
     @OneToOne(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

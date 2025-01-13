@@ -2,6 +2,7 @@ package com.parking.parkinglot.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 
 import java.util.Collection;
 
@@ -12,8 +13,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
+
+    @Size(min = 3, max = 100)
+    @Column(unique = true, nullable = false, length = 100)
     private String username;
+
+    @Size(min = 3, max = 100)
+    @Column(unique = true, nullable = false, length = 100)
     private String email;
+
+    @Size(min = 3, max = 100)
+    @Column(unique = true, nullable = false, length = 100)
     private String password;
 
     public void setUsername(String username) {
@@ -26,7 +36,7 @@ public class User {
     }
 
     @Email
-    @Column(unique=true, nullable=false, length = 100)
+    @Column(unique = true, nullable = false, length = 100)
     public String getEmail() {
         return email;
     }

@@ -39,6 +39,12 @@ public class UsersBean {
         }
     }
 
+    public UserDto findUserById(Long userId) {
+        LOG.info("findUserById");
+        User user = entityManager.find(User.class, userId);
+        return new UserDto(user.getId(), user.getEmail(), user.getUsername(), user.getPassword());
+    }
+
     public void createUser(String username, String email, String password,
                            Collection<String> groups) {
         LOG.info("createUser");
@@ -67,5 +73,24 @@ public class UsersBean {
                         .setParameter("userIds", userIds)
                         .getResultList();
         return usernames;
+    }
+
+    public void updateUserWithoutPassword(Long userId, String username, String email) {
+        User user = entityManager.find(User.class, userId);
+        if (user != null) {
+            user.setUsername(username);
+            user.setEmail(email);
+            entityManager.merge(user);
+        }
+    }
+
+    public void updateUserWithPassword(Long userId, String username, String email, String password) {
+        User user = entityManager.find(User.class, userId);
+        if (user != null) {
+            user.setUsername(username);
+            user.setEmail(email);
+            user.setPassword(passwordBean.convertToSha256(password));
+            entityManager.merge(user);
+        }
     }
 }

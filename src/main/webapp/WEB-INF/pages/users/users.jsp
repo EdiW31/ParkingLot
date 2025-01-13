@@ -29,6 +29,9 @@
                     <div class="col">
                             ${user.id}
                     </div>
+                    <div class="col">
+                        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/EditUser?id=${user.id}">Edit</a>
+                    </div>
                 </div>
             </u:forEach>
         </div>
