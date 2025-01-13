@@ -15,7 +15,7 @@ public class Car {
     @Column(unique=true, nullable=false, length = 100)
     private String licensePlate;
 
-    @Size(min = 3, max = 100)
+    @Size(min = 1, max = 100)
     @Column(unique=true, nullable=false, length = 100)
     private String parkingSpot;
 

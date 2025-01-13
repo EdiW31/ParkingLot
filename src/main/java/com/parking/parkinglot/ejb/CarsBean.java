@@ -97,6 +97,16 @@ public class CarsBean {
         entityManager.persist(photo);
     }
 
+    public long countCars() {
+        LOG.info("countCars");
+        try {
+            TypedQuery<Long> query = entityManager.createQuery("SELECT COUNT(c) FROM Car c", Long.class);
+            return query.getSingleResult();
+        } catch (Exception e) {
+            throw new EJBException(e);
+        }
+    }
+
     public CarPhotoDto findPhotoByCarId(Integer carId) {
         List<CarPhoto> photos = entityManager
                 .createQuery("SELECT p FROM CarPhoto p where p.car.id = :id", CarPhoto.class)

@@ -5,6 +5,7 @@
 <t:pageTemplate pageTitle="Cars">
     <div class="mt-5">
         <h1 class="d-flex justify-content-center">List of all the Cars</h1>
+        <h2 class="d-flex justify-content-center">Free Parking Spots: ${freeParkingSpots}</h2>
         <form method="POST" action="${pageContext.request.contextPath}/Cars">
             <div class="d-flex justify-content-center">
                 <c:if test="${pageContext.request.isUserInRole('WRITE_CARS')}">
